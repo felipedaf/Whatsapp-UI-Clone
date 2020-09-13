@@ -2,17 +2,20 @@ import React from "react";
 
 const THEME_KEY = "color_theme";
 
-export const DARK_MODE_COLORS = {
-
-};
-
-export const LIGHT_MODE_COLORS = {
-
-};
-
 export const THEMES = {
   DARK_THEME: "dark",
   LIGHT_THEME: "light"
+};
+
+export const THEME_MODE_COLORS = {
+  [THEMES.DARK_THEME]: {
+    bgColor: "#090e11",
+    bgGradient: "none"
+  },
+  [THEMES.LIGHT_THEME]: {
+    bgColor: "#dddbd1",
+    bgGradient: "linear-gradient(180deg,#dddbd1,#d2dbdc)"
+  }
 };
 
 export const Theme = {
@@ -27,14 +30,20 @@ export const Theme = {
       return theme
     } catch(e) {
       Theme.updateTheme(THEMES.LIGHT_THEME);
+
       return window.localStorage.getItem(THEME_KEY);
     }
   },
   updateTheme: newTheme => {
     try {
+      if (!Object.keys(THEME_MODE_COLORS).includes(newTheme))
+        throw new Error("This theme doesn't exist!")
+
       window.localStorage.setItem(THEME_KEY, newTheme);
+
       return true;
     } catch(e) {
+      
       return false;
     }
   },
