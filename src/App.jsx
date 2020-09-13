@@ -1,8 +1,12 @@
 import './App.css'
 import React, { useState } from "react";
 import ThemeContext, { Theme } from "./utils/theme";
-import ToggleButton from "./components/ToggleButton";
 import Background from "./components/Background"
+import {
+  FSection,
+  SSection
+
+} from "./components/generalStyles"
 
 const App = () => {
   const [theme, setTheme] = useState(Theme.getTheme());
@@ -10,16 +14,20 @@ const App = () => {
   const changeTheme = newTheme => {
     setTheme(() => {
       Theme.updateTheme(newTheme);
-      return newTheme;
+      return Theme.getTheme()
     });
   };
 
   return (
     <>
-      <ThemeContext.Provider value={theme}>
+      <ThemeContext.Provider value={theme || 'light'}>
         <Background>
-          <ToggleButton toggle={changeTheme}/>
-          <p>O tema é: {theme}</p>
+          <FSection>
+
+          </FSection>
+          <SSection>
+
+          </SSection>
         </Background>
       </ThemeContext.Provider>
     
