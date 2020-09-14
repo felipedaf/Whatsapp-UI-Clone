@@ -10,11 +10,15 @@ export const THEMES = {
 export const THEME_MODE_COLORS = {
   [THEMES.DARK_THEME]: {
     bgColor: "#090e11",
-    bgGradient: "none"
+    bgGradient: "none",
+    navHeader: "#2a2f32",
+    headerIconsColor: "#b1b3b5"
   },
   [THEMES.LIGHT_THEME]: {
     bgColor: "#dddbd1",
-    bgGradient: "linear-gradient(180deg,#dddbd1,#d2dbdc)"
+    bgGradient: "linear-gradient(180deg,#dddbd1,#d2dbdc)",
+    navHeader: "#ededed",
+    headerIconsColor: "#919191"
   }
 };
 

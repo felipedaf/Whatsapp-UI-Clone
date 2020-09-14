@@ -1,7 +1,13 @@
 import './App.css'
 import React, { useState } from "react";
 import ThemeContext, { Theme } from "./utils/theme";
-import Background from "./components/Background"
+
+import {
+  Background,
+  ChatWrapper,
+  NavWrapper
+} from "./components"
+
 import {
   FSection,
   SSection
@@ -23,10 +29,10 @@ const App = () => {
       <ThemeContext.Provider value={theme || 'light'}>
         <Background>
           <FSection>
-
+            <NavWrapper />
           </FSection>
           <SSection>
-
+            <ChatWrapper />
           </SSection>
         </Background>
       </ThemeContext.Provider>
