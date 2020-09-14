@@ -3,7 +3,8 @@ import {
   Wrapper
 } from "./styles"
 import {
-  HeaderBar
+  HeaderBar,
+  Notification
 } from "../../components"
 
 
@@ -11,6 +12,7 @@ const NavWrapper = props => {
   return (
     <Wrapper>
       <HeaderBar />
+      <Notification />
     </Wrapper>
   )
 };
