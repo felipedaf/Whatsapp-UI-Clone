@@ -4,7 +4,8 @@ import {
 } from "./styles"
 import {
   HeaderBar,
-  Notification
+  Notification,
+  ContactsNav
 } from "../../components"
 
 
@@ -13,6 +14,7 @@ const NavWrapper = props => {
     <Wrapper>
       <HeaderBar />
       <Notification />
+      <ContactsNav />
     </Wrapper>
   )
 };

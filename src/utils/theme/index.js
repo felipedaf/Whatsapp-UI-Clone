@@ -18,7 +18,9 @@ export const THEME_MODE_COLORS = {
     bgColor: "#dddbd1",
     bgGradient: "linear-gradient(180deg,#dddbd1,#d2dbdc)",
     navHeader: "#ededed",
-    headerIconsColor: "#919191"
+    headerIconsColor: "#919191",
+    searchContainerBackground: "#f6f6f6",
+    searchInputBackground: "#fff"
   }
 };
 
