@@ -1,6 +1,7 @@
 import React from "react";
 import {
-  Wrapper
+  Wrapper,
+  ChatContainer
 } from "./styles"
 import {
   SearchBar
@@ -12,6 +13,7 @@ const ContactsNav = props => {
   return (
     <Wrapper>
       <SearchBar />
+      <ChatContainer />
     </Wrapper>
   )
 }
