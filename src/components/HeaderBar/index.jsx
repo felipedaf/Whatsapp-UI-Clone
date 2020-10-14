@@ -11,7 +11,8 @@ import {
 import Image from "../../assets/profile.png"
 
 import {
-  Icon
+  Icon,
+  Dropdown
 } from "../../components";
 
 const HeaderBar = props => {
@@ -35,7 +36,7 @@ const HeaderBar = props => {
                 <ProfileImage src={Image}/>
               </ProfileDiv>
             </Container>
-            <Container justifyContent="end">
+            <Container justifyContent="flex-end">
               <Button {...iconColor}>
                 <Icon name="stories" height="24" />
               </Button>
@@ -53,6 +54,7 @@ const HeaderBar = props => {
               >
                 <Icon name="dots" height="24" />
               </Button>
+              <Dropdown show={isDotsSelected}/>
             </Container>
           </Wrapper>
         )
