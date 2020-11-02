@@ -45,15 +45,15 @@ const SearchBar = props => {
     <ThemeContext.Consumer>
       { theme => (
           <Wrapper boxShadow={isEditing}>
-            <Container background={isEditing && 'white'}>
+            <Container background={!phVisibility && 'white'}>
               <SearchIcon
-                visible={!isEditing}
+                visible={phVisibility}
               >
                 <Icon name="search"/>
               </SearchIcon>
               <SearchIcon
                 style={{color: "#33b7f6"}}
-                visible={isEditing}
+                visible={!phVisibility}
                 name="back"
               >
                 <Icon name="back"/>
