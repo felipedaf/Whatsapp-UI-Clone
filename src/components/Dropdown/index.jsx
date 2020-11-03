@@ -74,7 +74,7 @@ const Dropdown = props => {
   }
 
   return isMounted &&
-    <Wrapper onBlur={() => { setAppear(false) }} tabIndex="0" ref={dropdownRef}>
+    <Wrapper onBlur={() => { setAppear(false) }} tabIndex="-1" ref={dropdownRef}>
           <Menu show={isAppearing} onTransitionEnd={unmount}>
             { mountOptions() }
           </Menu>
