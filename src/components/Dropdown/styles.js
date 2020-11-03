@@ -9,8 +9,8 @@ export const Wrapper = styled.div`
 export const Menu = styled.div`
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0,.26),0 2px 10px 0 rgba(0, 0, 0,.16);
   position: absolute;
-  height: 400px;
-  width: 200px;
+  width: 170px;
+  padding: 10px 0;
   background: white;
   right: 4px;
   top: 25px;
