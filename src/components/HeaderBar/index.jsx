@@ -54,7 +54,7 @@ const HeaderBar = props => {
               >
                 <Icon name="dots" height="24" />
               </Button>
-              <Dropdown show={isDotsSelected}/>
+              <Dropdown closing={() => {setIsDotsSelected(false)}} show={isDotsSelected}/>
             </Container>
           </Wrapper>
         )

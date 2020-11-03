@@ -25,6 +25,8 @@ const Dropdown = props => {
   useEffect(() => {
     if(isMounted)
       setTimeout(() => setAppear(true), 20);
+    else
+      props.closing();
   }, [isMounted]);
 
   const unmount = () => {
