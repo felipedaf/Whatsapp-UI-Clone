@@ -5,7 +5,8 @@ import ThemeContext, { Theme } from "./utils/theme";
 import {
   Background,
   ChatWrapper,
-  NavWrapper
+  NavWrapper,
+  SectionManager
 } from "./components"
 
 import {
@@ -16,6 +17,7 @@ import {
 
 const App = () => {
   const [theme, setTheme] = useState(Theme.getTheme());
+  const [section, setSection] = useState(null);
 
   const changeTheme = newTheme => {
     setTheme(() => {
@@ -29,6 +31,7 @@ const App = () => {
       <ThemeContext.Provider value={theme || 'light'}>
         <Background>
           <FSection>
+            <SectionManager current="test" show={section}/>
             <NavWrapper />
           </FSection>
           <SSection>
@@ -36,7 +39,6 @@ const App = () => {
           </SSection>
         </Background>
       </ThemeContext.Provider>
-    
     </>
   );
 }
