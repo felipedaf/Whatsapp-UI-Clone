@@ -7,10 +7,11 @@ import {
 const DropdownOption = props => {
   
   return (
-    <Wrapper>
-      
-
+    <Wrapper onClick={props.action}>
+      {props.label}
     </Wrapper>
   )
 
 }
+
+export default DropdownOption;
