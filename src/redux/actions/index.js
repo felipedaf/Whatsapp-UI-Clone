@@ -8,5 +8,5 @@ const createAction = (type, payload) => {
 };
 
 export const changeSection = payload => {
-  createAction(CHANGE_SECTION, payload);
+  return createAction(CHANGE_SECTION, payload);
 };

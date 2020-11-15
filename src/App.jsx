@@ -1,7 +1,8 @@
 import './App.css'
 import React, { useState } from "react";
 import ThemeContext, { Theme } from "./utils/theme";
-
+import store from "./redux/store";
+import { Provider } from "react-redux";
 import {
   Background,
   ChatWrapper,
@@ -15,9 +16,10 @@ import {
 
 } from "./components/generalStyles"
 
+window.store = store
+
 const App = () => {
   const [theme, setTheme] = useState(Theme.getTheme());
-  const [section, setSection] = useState(null);
 
   const changeTheme = newTheme => {
     setTheme(() => {
@@ -28,17 +30,19 @@ const App = () => {
 
   return (
     <>
-      <ThemeContext.Provider value={theme || 'light'}>
-        <Background>
-          <FSection>
-            <SectionManager current="test" show={section}/>
-            <NavWrapper />
-          </FSection>
-          <SSection>
-            <ChatWrapper />
-          </SSection>
-        </Background>
-      </ThemeContext.Provider>
+      <Provider store={store}>
+        <ThemeContext.Provider value={theme || 'light'}>
+          <Background>
+            <FSection>
+              <SectionManager/>
+              <NavWrapper />
+            </FSection>
+            <SSection>
+              <ChatWrapper />
+            </SSection>
+          </Background>
+        </ThemeContext.Provider>
+      </Provider>
     </>
   );
 }

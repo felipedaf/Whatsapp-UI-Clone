@@ -5,7 +5,7 @@ const initialState = {
 };
 
 const rootReducer = (state = initialState, action) => {
-  if(action === CHANGE_SECTION) {
+  if(action.type === CHANGE_SECTION) {
     const newSection = action.payload.section;
 
     return { ...state, section: newSection };

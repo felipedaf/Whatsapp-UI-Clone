@@ -3,8 +3,20 @@ import {
   Wrapper,
   TitleContainer,
   ContentContainer,
-  TitleActions
+  TitleActions,
+  TitleContent,
+  Title,
+  BackButton
 } from './styles';
+import { Icon } from './..';
+import { connect } from 'react-redux';
+import { changeSection } from '../../redux/actions';
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeSection: section => dispatch(changeSection(section))
+  }
+}
 
 const Section = props => {
   const [show, setShow] = useState(false);
@@ -22,19 +34,29 @@ const Section = props => {
   useEffect(() => {
     if(mounted) {
       setTimeout(() => {setShow(true)}, 20);
-
+      props.change(false);
     }
   }, [mounted])
 
   const unmount = () => {
-    if(!show)
+    if(!show) {
       setMounted(false);
+      props.change(true);
+    }
   }
 
   return mounted && (
     <Wrapper appear={show} onTransitionEnd={unmount}>
       <TitleContainer>
         <TitleActions >
+          <TitleContent>
+            <BackButton onClick={() => {
+                props.changeSection({ section: null })
+              }}>
+              <Icon name="back" color="white"/>
+            </BackButton>
+            <Title>{props.name}</Title>
+          </TitleContent>
         </TitleActions>
       </TitleContainer>
       <ContentContainer>
@@ -44,4 +66,6 @@ const Section = props => {
 
 };
 
-export default Section;
+const ReduxSection = connect(null, mapDispatchToProps)(Section);
+
+export default ReduxSection;
