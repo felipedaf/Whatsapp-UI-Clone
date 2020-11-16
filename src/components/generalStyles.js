@@ -5,6 +5,7 @@ export const FSection = styled.div`
   min-width: 260px;
   min-height: 100vh;
   width: calc(260px + 32%);
+  position: relative;
 
   @media (min-width: 1300px) {
     width: calc(260px + 22%);

@@ -2,7 +2,11 @@ import styled from "styled-components";
 
 
 export const Wrapper = styled.div`
+  transition: box-shadow .18s ease-out,background-color .25s ease-out;
   width: 100%;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  z-index: 10;
+  ${props => props.boxShadow && `box-shadow: 0 0px 7px -5px;`}
 `
 
 export const Container = styled.div`

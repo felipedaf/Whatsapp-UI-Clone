@@ -6,3 +6,7 @@ export {default as Icon} from "./Icon";
 export {default as Notification} from "./Notification";
 export {default as ContactsNav} from "./ContactsNav";
 export {default as SearchBar} from "./SearchBar";
+export {default as Dropdown} from "./Dropdown";
+export {default as Section} from "./Section";
+export {default as SectionManager} from "./SectionManager";
+

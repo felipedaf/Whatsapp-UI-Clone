@@ -11,8 +11,18 @@ import {
 import Image from "../../assets/profile.png"
 
 import {
-  Icon
+  Icon,
+  Dropdown
 } from "../../components";
+
+import { connect } from 'react-redux';
+import { changeSection } from '../../redux/actions';
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeSection: section => dispatch(changeSection(section))
+  }
+};
 
 const HeaderBar = props => {
   const [isDotsSelected, setIsDotsSelected] = useState(false);
@@ -22,26 +32,27 @@ const HeaderBar = props => {
       {theme => {
         const wrapperColors = {
           backgroundColor: THEME_MODE_COLORS[theme].navHeader
-        }
+        };
 
         const iconColor = {
           color: THEME_MODE_COLORS[theme].headerIconsColor
-        }
+        };
 
         return (
           <Wrapper {...wrapperColors}>
             <Container>
               <ProfileDiv>
-                <ProfileImage src={Image}/>
+                <ProfileImage src={Image} onClick={() => {props.changeSection({ section: 'profile' })}}/>
               </ProfileDiv>
             </Container>
-            <Container justifyContent="end">
+            <Container justifyContent="flex-end">
               <Button {...iconColor}>
                 <Icon name="stories" height="24" />
               </Button>
               <Button
                 {...iconColor}
                 marginLeft="10px"
+                onClick={() => {props.changeSection({ section: 'newChat' })}}
               >
                 <Icon name="chat" height="24" />
               </Button>
@@ -53,6 +64,7 @@ const HeaderBar = props => {
               >
                 <Icon name="dots" height="24" />
               </Button>
+              <Dropdown closing={() => {setIsDotsSelected(false)}} show={isDotsSelected}/>
             </Container>
           </Wrapper>
         )
@@ -61,4 +73,6 @@ const HeaderBar = props => {
   )
 };
 
-export default HeaderBar;
+const ReduxHeaderBar = connect(null, mapDispatchToProps)(HeaderBar);
+
+export default ReduxHeaderBar;
