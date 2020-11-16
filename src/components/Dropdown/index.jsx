@@ -4,6 +4,14 @@ import {
   Menu
 } from "./styles"
 import DropdownOption from "../DropdownOption";
+import { connect } from "react-redux";
+import { changeSection } from "../../redux/actions";
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeSection: section => dispatch(changeSection(section))
+  }
+}
 
 const Dropdown = props => {
   const [isAppearing, setAppear] = useState(props.show);
@@ -39,7 +47,7 @@ const Dropdown = props => {
       {
         label: "New group",
         selected: () => {
-          console.log("You selected the first option!")
+          props.changeSection({ section: "newGroup" })
         }
       },
       {
@@ -48,19 +56,27 @@ const Dropdown = props => {
       },
       {
         label: "Profile",
-        selected: () => {}
+        selected: () => {
+          props.changeSection({ section: "profile" })
+        }
       },
       {
         label: "Archived",
-        selected: () => {}
+        selected: () => {
+          props.changeSection({ section: "archived" })
+        }
       },
       {
         label: "Starred",
-        selected: () => {}
+        selected: () => {
+          props.changeSection({ section: "starred" })
+        }
       },
       {
         label: "Settings",
-        selected: () => {}
+        selected: () => {
+          props.changeSection({ section: "settings" })
+        }
       },
       {
         label: "Log out",
@@ -69,7 +85,14 @@ const Dropdown = props => {
     ];
 
     return options.map(option => {
-      return <DropdownOption key={option.label} action={option.selected} label={option.label}></DropdownOption>
+      return <DropdownOption 
+        key={option.label}
+        action={() => {
+          option.selected();
+          props.closing();
+        }}
+        label={option.label}
+      />
     });
   }
 
@@ -81,4 +104,6 @@ const Dropdown = props => {
         </Wrapper>
 }
 
-export default Dropdown;
+const ReduxDropdown = connect(null, mapDispatchToProps)(Dropdown);
+
+export default ReduxDropdown;
