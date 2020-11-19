@@ -4,14 +4,6 @@ import {
   Menu
 } from "./styles"
 import DropdownOption from "../DropdownOption";
-import { connect } from "react-redux";
-import { changeSection } from "../../redux/actions";
-
-const mapDispatchToProps = dispatch => {
-  return {
-    changeSection: section => dispatch(changeSection(section))
-  }
-}
 
 const Dropdown = props => {
   const [isAppearing, setAppear] = useState(props.show);
@@ -43,46 +35,7 @@ const Dropdown = props => {
   };
 
   const mountOptions = () => {
-    const options = [
-      {
-        label: "New group",
-        selected: () => {
-          props.changeSection({ section: "newGroup" })
-        }
-      },
-      {
-        label: "Create a room",
-        selected: () => {}
-      },
-      {
-        label: "Profile",
-        selected: () => {
-          props.changeSection({ section: "profile" })
-        }
-      },
-      {
-        label: "Archived",
-        selected: () => {
-          props.changeSection({ section: "archived" })
-        }
-      },
-      {
-        label: "Starred",
-        selected: () => {
-          props.changeSection({ section: "starred" })
-        }
-      },
-      {
-        label: "Settings",
-        selected: () => {
-          props.changeSection({ section: "settings" })
-        }
-      },
-      {
-        label: "Log out",
-        selected: () => {}
-      }
-    ];
+    const options = props.options
 
     return options.map(option => {
       return <DropdownOption 
@@ -97,13 +50,35 @@ const Dropdown = props => {
   }
 
   return isMounted &&
-    <Wrapper onBlur={() => { setAppear(false) }} tabIndex="-1" ref={dropdownRef}>
+    <>
+    {
+      props.free ?
+        <Menu
+          free={true}
+          show={isAppearing}
+          onTransitionEnd={unmount}
+          tabIndex="-1"
+          ref={dropdownRef}
+          zIndex={props.z}
+          onBlur={() => { setAppear(false) }}
+          top={props.top || '0'}
+          left={props.left || '0'}
+        >
+          { mountOptions() }
+        </Menu>
+      :
+        <Wrapper
+          onBlur={() => { setAppear(false) }}
+          tabIndex="-1"
+          ref={dropdownRef}
+        >
           <Menu show={isAppearing} onTransitionEnd={unmount}>
             { mountOptions() }
           </Menu>
         </Wrapper>
+    }
+    </>
 }
 
-const ReduxDropdown = connect(null, mapDispatchToProps)(Dropdown);
 
-export default ReduxDropdown;
+export default Dropdown;

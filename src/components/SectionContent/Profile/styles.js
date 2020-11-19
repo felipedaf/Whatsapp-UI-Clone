@@ -54,6 +54,7 @@ export const PictureChangerContainer = styled.span`
 
 export const PictureChanger = styled.div`
   position: absolute;
+  z-index: 2;
   height: 200px;
   width: 200px;
   border-radius: 50%;
