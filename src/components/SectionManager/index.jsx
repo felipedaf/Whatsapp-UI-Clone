@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { changeSection } from "../../redux/actions";
 import {
-  Section
+  Section,
+  SectionContent
 } from "../../components";
 
 const mapStateToProps = state => {
@@ -33,7 +34,11 @@ const SectionManager = props => {
   }, [canChange]);
 
   const sections = {
-    profile: () => <Section name="Profile" show={showSection} change={setCanChange}/>,
+    profile: () => (
+      <Section name="Profile" show={showSection} change={setCanChange}>
+        <SectionContent section="profile"/>
+      </Section>
+    ),
     newChat: () => <Section name="New chat" show={showSection} change={setCanChange}/>,
     newGroup: () => <Section name="Add group participants" show={showSection} change={setCanChange}/>,
     archived: () => <Section name="Archived chats" show={showSection} change={setCanChange}/>,

@@ -1,4 +1,21 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const titlePresentation = keyframes`
+  0% {
+    opacity: 0%;
+    transform: translateX(-60px);
+  }
+
+  10% {
+    opacity: 0%;
+    transform: translateX(-60px);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: translateX(0);
+  }
+`
 
 export const Wrapper = styled.div`
   height: 100%;
@@ -9,7 +26,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   transform: ${props => props.appear ? 'translateX(0px)' : 'translateX(-100%)'}; 
-  transition: transform .3s cubic-bezier(1,.02,.77,.56);
+  transition: transform ${props => props.appear ? '.2s cubic-bezier(.1,1.05,.23,.95)' : '.3s cubic-bezier(1,.02,.77,.56)'};
 `
 
 export const TitleContainer = styled.div`
@@ -26,6 +43,9 @@ export const TitleContent = styled.div`
   height: 24px;
   width: 100%;
   display: flex;
+  animation-name: ${titlePresentation};
+  animation-duration: .6s;
+  animation-timing-function: cubic-bezier(0,1.01,.98,.99);
 `
 
 export const ContentContainer = styled.div`
