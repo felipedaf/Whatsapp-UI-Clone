@@ -38,7 +38,7 @@ const Section = props => {
     }
   }, [mounted])
 
-  const unmount = () => {
+  const unmount = event => {
     if(!show) {
       setMounted(false);
       props.change(true);
@@ -60,6 +60,7 @@ const Section = props => {
         </TitleActions>
       </TitleContainer>
       <ContentContainer>
+        {props.children}
       </ContentContainer>
     </Wrapper>
   )

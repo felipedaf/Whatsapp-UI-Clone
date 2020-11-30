@@ -24,8 +24,50 @@ const mapDispatchToProps = dispatch => {
   }
 };
 
+
 const HeaderBar = props => {
   const [isDotsSelected, setIsDotsSelected] = useState(false);
+
+  const dropdownOptions = () => [
+    {
+      label: "New group",
+      selected: () => {
+        props.changeSection({ section: "newGroup" })
+      }
+    },
+    {
+      label: "Create a room",
+      selected: () => {}
+    },
+    {
+      label: "Profile",
+      selected: () => {
+        props.changeSection({ section: "profile" })
+      }
+    },
+    {
+      label: "Archived",
+      selected: () => {
+        props.changeSection({ section: "archived" })
+      }
+    },
+    {
+      label: "Starred",
+      selected: () => {
+        props.changeSection({ section: "starred" })
+      }
+    },
+    {
+      label: "Settings",
+      selected: () => {
+        props.changeSection({ section: "settings" })
+      }
+    },
+    {
+      label: "Log out",
+      selected: () => {}
+    }
+  ];
 
   return (
     <ThemeContext.Consumer>
@@ -64,7 +106,7 @@ const HeaderBar = props => {
               >
                 <Icon name="dots" height="24" />
               </Button>
-              <Dropdown closing={() => {setIsDotsSelected(false)}} show={isDotsSelected}/>
+              <Dropdown closing={() => {setIsDotsSelected(false)}} options={dropdownOptions()} show={isDotsSelected}/>
             </Container>
           </Wrapper>
         )

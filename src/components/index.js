@@ -9,4 +9,5 @@ export {default as SearchBar} from "./SearchBar";
 export {default as Dropdown} from "./Dropdown";
 export {default as Section} from "./Section";
 export {default as SectionManager} from "./SectionManager";
-
+export {default as SectionContent} from "./SectionContent";
+export {default as InputField} from "./InputField";

@@ -25,6 +25,7 @@ export const Button = styled.button`
   margin-left: ${props => props.marginLeft || "0px"};
   color: ${props => props.color || "black"};
   transition: background-color 0.1s ease-in;
+  cursor: pointer;
 `
 
 export const ProfileDiv = styled.div`
@@ -32,6 +33,7 @@ export const ProfileDiv = styled.div`
   width: ${props => props.size || "40px"};
   border-radius: 50%;
   overflow: hidden;
+  cursor: pointer;
 `
 
 export const ProfileImage = styled.img`

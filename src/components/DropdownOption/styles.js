@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   line-height: 14.5px;
   background: transparent;
   color: #4a4a4a;
+  cursor: pointer;
 
   &:hover {
     background: #f5f5f5;

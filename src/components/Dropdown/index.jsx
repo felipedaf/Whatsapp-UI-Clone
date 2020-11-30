@@ -16,7 +16,7 @@ const Dropdown = props => {
       setMount(true);
       setTimeout(() => {
         dropdownRef.current.focus();
-      }, 50);
+      }, 0);
     }
     else
       setAppear(false);
@@ -24,7 +24,7 @@ const Dropdown = props => {
 
   useEffect(() => {
     if(isMounted)
-      setTimeout(() => setAppear(true), 20);
+      setTimeout(() => setAppear(true), 0);
     else
       props.closing();
   }, [isMounted]);
@@ -35,50 +35,50 @@ const Dropdown = props => {
   };
 
   const mountOptions = () => {
-    const options = [
-      {
-        label: "New group",
-        selected: () => {
-          console.log("You selected the first option!")
-        }
-      },
-      {
-        label: "Create a room",
-        selected: () => {}
-      },
-      {
-        label: "Profile",
-        selected: () => {}
-      },
-      {
-        label: "Archived",
-        selected: () => {}
-      },
-      {
-        label: "Starred",
-        selected: () => {}
-      },
-      {
-        label: "Settings",
-        selected: () => {}
-      },
-      {
-        label: "Log out",
-        selected: () => {}
-      }
-    ];
+    const options = props.options
 
     return options.map(option => {
-      return <DropdownOption key={option.label} action={option.selected} label={option.label}></DropdownOption>
+      return <DropdownOption 
+        key={option.label}
+        action={() => {
+          option.selected();
+          props.closing();
+        }}
+        label={option.label}
+      />
     });
   }
 
   return isMounted &&
-    <Wrapper onBlur={() => { setAppear(false) }} tabIndex="-1" ref={dropdownRef}>
+    <>
+    {
+      props.free ?
+        <Menu
+          free={true}
+          show={isAppearing}
+          onTransitionEnd={unmount}
+          tabIndex="-1"
+          ref={dropdownRef}
+          zIndex={props.z}
+          onBlur={() => { setAppear(false) }}
+          top={props.top || '0'}
+          left={props.left || '0'}
+        >
+          { mountOptions() }
+        </Menu>
+      :
+        <Wrapper
+          onBlur={() => { setAppear(false) }}
+          tabIndex="-1"
+          ref={dropdownRef}
+        >
           <Menu show={isAppearing} onTransitionEnd={unmount}>
             { mountOptions() }
           </Menu>
         </Wrapper>
+    }
+    </>
 }
+
 
 export default Dropdown;
