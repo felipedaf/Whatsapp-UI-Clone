@@ -86,13 +86,13 @@ const Profile = props => {
         </PictureLimiter>
       </PictureContainer>
       <Form opacity={beforeAnimation ? 0 : 1}>
-        <InputField title="Your Name"/>
+        <InputField title="Your Name" maxLength={30}/>
         <WarningContainer>
           <Warning>
             This is not your username or pin. This name will be visible to your WhatsApp contacts.
           </Warning>
         </WarningContainer>
-        <InputField title="About"/>
+        <InputField title="About" maxLength={300}/>
       </Form>
     </Wrapper>
   )

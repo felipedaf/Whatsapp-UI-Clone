@@ -51,6 +51,7 @@ export const TitleContent = styled.div`
 export const ContentContainer = styled.div`
   height: 100%;
   width: 100%;
+  overflow: auto;
 `
 
 export const TitleActions = styled.div`

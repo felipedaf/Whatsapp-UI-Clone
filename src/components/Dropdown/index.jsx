@@ -16,7 +16,7 @@ const Dropdown = props => {
       setMount(true);
       setTimeout(() => {
         dropdownRef.current.focus();
-      }, 50);
+      }, 0);
     }
     else
       setAppear(false);
@@ -24,7 +24,7 @@ const Dropdown = props => {
 
   useEffect(() => {
     if(isMounted)
-      setTimeout(() => setAppear(true), 20);
+      setTimeout(() => setAppear(true), 0);
     else
       props.closing();
   }, [isMounted]);

@@ -2,13 +2,14 @@ import styled from "styled-components"
 
 export const Wrapper = styled.div`
   width: 100%;
+  max-height: ${props => props.show ? "300px" : "0"};
+  transition: .5s ease-in;
 `
   
 export const Container = styled.div`
-  background-color: ${props => props.backgroundColor || "#9de1fe"};
+  overflow: hidden;
+  background-color: ${props => props.backgroundColor};
   width: 100%;
-  height: 100%;
-  min-height: 88px;
   padding: 13px;
   box-sizing: border-box;
   display: flex;

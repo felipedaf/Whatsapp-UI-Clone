@@ -36,7 +36,7 @@ const SearchBar = props => {
         //Trigger transition after mount.
         setTimeout(() => {
           setPhVisibility(true)
-        }, 100)
+        }, 0)
       };
     };
   }, [isEditing]);
