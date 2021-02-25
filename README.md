@@ -12,6 +12,7 @@ Repository was created with the purpose of challenging me to create a similar in
 To run locally is required NodeJS and NPM installed, then you must run the command below:
 
 ```sh
+npm i
 npm start
 ```
 
@@ -19,7 +20,7 @@ After this go to http://localhost:3000/ to see the page.
 
 
 # Implemented Features
-    
+
 ### Fixed Dropdown
 
 ![Alt Text](https://media.giphy.com/media/rpWCAtOMNt1etUryYm/giphy.gif)
