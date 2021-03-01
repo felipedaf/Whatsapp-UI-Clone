@@ -25,7 +25,7 @@ export const Input = styled.label`
   height: 35px;
   width: 100%;
   padding-left: 65px;
-  padding-right: 32px; 
+  padding-right: 32px;
   border-radius: 18px;
   display: flex;
   align-items: center;
@@ -63,6 +63,7 @@ export const TextField = styled.div`
   line-height: 24px;
   cursor: text;
   word-break: break-all;
+  outline: none;
 `
 
 export const PlaceHolder = styled.div`

@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
   z-index: 100;
   display: flex;
   flex-direction: column;
-  transform: ${props => props.appear ? 'translateX(0px)' : 'translateX(-100%)'}; 
+  transform: ${props => props.appear ? 'translateX(0px)' : 'translateX(-100%)'};
   transition: transform ${props => props.appear ? '.2s cubic-bezier(.1,1.05,.23,.95)' : '.3s cubic-bezier(1,.02,.77,.56)'};
 `
 
@@ -64,6 +64,7 @@ export const BackButton = styled.button`
   background: transparent;
   border: none;
   height: 100%;
+  outline: none;
 `
 
 export const Title = styled.div`

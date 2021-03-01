@@ -26,6 +26,7 @@ export const Button = styled.button`
   color: ${props => props.color || "black"};
   transition: background-color 0.1s ease-in;
   cursor: pointer;
+  outline: none;
 `
 
 export const ProfileDiv = styled.div`

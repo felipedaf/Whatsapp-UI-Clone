@@ -37,6 +37,7 @@ export const Input = styled.div`
   font-size: 17px;
   line-height: 20px;
   margin: 8px 0;
+  outline: none;
 `
 
 export const IconButton = styled.div`
