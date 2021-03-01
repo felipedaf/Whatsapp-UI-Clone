@@ -30,10 +30,18 @@ const InputField = props => {
     setEditable(!editable);
   }
 
+  const handleValueSize = (value) => value === "\n" ? 0 : value.length;
+
   const handleChange = event => {
     const value = event.target.innerText;
+
+    if(value.length > props.maxLength) {
+      event.target.innerText = input;
+      return;
+    }
+
+    setRemaining(props.maxLength - handleValueSize(value));
     setInput(value);
-    setRemaining(props.maxLength - value.length);
   }
 
   useEffect(() => {

@@ -36,16 +36,24 @@ const SectionManager = props => {
   const sections = {
     profile: () => (
       <Section name="Profile" show={showSection} change={setCanChange}>
-        <SectionContent section="profile"/>
+        <SectionContent section="profile" />
       </Section>
     ),
-    newChat: () => <Section name="New chat" show={showSection} change={setCanChange}/>,
-    newGroup: () => <Section name="Add group participants" show={showSection} change={setCanChange}/>,
-    archived: () => <Section name="Archived chats" show={showSection} change={setCanChange}/>,
-    starred: () => <Section name="Starred messages" show={showSection} change={setCanChange}/>,
-    settings: () => <Section name="Settings" show={showSection} change={setCanChange}/>,
-  };
 
+    newChat: () => <Section name="New chat" show={showSection} change={setCanChange}/>,
+
+    newGroup: () => <Section name="Add group participants" show={showSection} change={setCanChange}/>,
+
+    archived: () => <Section name="Archived chats" show={showSection} change={setCanChange}/>,
+
+    starred: () => <Section name="Starred messages" show={showSection} change={setCanChange}/>,
+
+    settings: () => (
+      <Section name="Settings" show={showSection} change={setCanChange}>
+        <SectionContent section="settings" />
+      </Section>
+    ),
+  };
 
   return current !== null ? sections[current]() : <></>;
 };

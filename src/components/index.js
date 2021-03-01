@@ -11,3 +11,4 @@ export {default as Section} from "./Section";
 export {default as SectionManager} from "./SectionManager";
 export {default as SectionContent} from "./SectionContent";
 export {default as InputField} from "./InputField";
+export {default as SettingsOption} from "./SettingsOption";

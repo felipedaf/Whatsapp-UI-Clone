@@ -25,16 +25,19 @@ export const InputContainer = styled.div`
   align-items: center;
   min-height: 36px;
   border-bottom: 2px solid ${props => props.showBorder ? '#00bfa5' : 'white'};
+  justify-content: space-between;
   transition: border-bottom linear .2s;
 `
 
 export const Input = styled.div`
-  width: calc(100% - 110px);
+  width: 100%;
+  max-width: calc(100% - 90px);
   overflow-wrap: break-word;
   min-height: 20px;
   font-size: 17px;
   line-height: 20px;
   margin: 8px 0;
+  outline: none;
 `
 
 export const IconButton = styled.div`
@@ -43,14 +46,14 @@ export const IconButton = styled.div`
   margin: 2px;
   display: flex;
   align-items: center;
-  width: 90px;
+  padding: 0 4px;
   justify-content: end;
 
 `
 
 export const IconContainer = styled.div`
   ${props => props.absolute && 'position: absolute;'}
-  ${props => props.absolute && 'right: 0;'}
+  ${props => props.absolute && 'right: 4px;'}
   opacity: ${props => props.show ? '1' : '0'};
   transition: opacity linear .2s;
   margin: 0 2px;
@@ -62,9 +65,9 @@ export const Remaining = styled.div`
   opacity: ${props => props.show ? '1' : '0'};
   transition: opacity linear .2s;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   display: flex;
-  margin: 0 2px;
+  margin: 0 4px 0 0;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.3);
 `

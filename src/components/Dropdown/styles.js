@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   position: relative;
 `
-  
+
 export const Menu = styled.div`
+  outline: none;
   z-index: ${props => props.zIndex || '100'};
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0,.26),0 2px 10px 0 rgba(0, 0, 0,.16);
   position: absolute;
